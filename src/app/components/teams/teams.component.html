@@ -1,19 +1,23 @@
+<!-- parent div -->
 <div class="container">
-    <h2>Team Member</h2>
-    <div class="row g-5 ">
-        <div class="col-lg-4 card-deck" *ngFor="let user of teamMembers">
-          <div class="card">
-            <img src="{{ user.avatar }}" class="card-img-top" alt="avatar">
-            <div class="card-body">
-                <p>First Name: {{ user.first_name }}</p>
-                <p>Last Name: {{ user.last_name }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p>Gender: {{ user.gender }}</p>
-                <p>Domain: {{ user.domain }}</p>
-                <p>Availability: {{ user.available }}</p>
-                <button class="btn btn-primary" (click)="removeFromTeam(user)">Remove From Team</button>
-            </div>
-          </div>
+  <h2>Team Member</h2>
+  <div class="row g-5">
+    <div class="col-lg-3 card-deck" *ngFor="let user of teamMembers">
+      <!-- Card element to show users -->
+      <div class="card">
+        <img src="{{ user.avatar }}" class="card-img-top" alt="avatar" />
+        <div class="card-body">
+          <p>First Name: {{ user.first_name }}</p>
+          <p>Last Name: {{ user.last_name }}</p>
+          <p>Email: {{ user.email }}</p>
+          <p>Gender: {{ user.gender }}</p>
+          <p>Domain: {{ user.domain }}</p>
+          <p>Availability: {{ user.available }}</p>
+          <button class="btn btn-primary" (click)="removeFromTeam(user)">
+            Remove From Team
+          </button>
         </div>
       </div>
+    </div>
   </div>
+</div>

@@ -1,59 +1,77 @@
+<!-- Parent div -->
 <div class="parent container">
-
-    <div class="search-controls">
-
-        <input class="form-control" type="text" placeholder="Search by name" [(ngModel)]="searchName" (input)="applyFilters()">
-    
-        <select  class="form-select" size="1" [(ngModel)]="selectedDomainFilter" (change)="applyFilters()">
-          <option value="All">All Domains</option>
-          <!-- Assuming domains are fetched dynamically -->
-          <option *ngFor="let domain of uniqueDomains" [value]="domain">{{ domain }}</option>
-        </select>
-      
-        <select class="form-select" size="1" [(ngModel)]="selectedGenderFilter" (change)="applyFilters()">
-          <option value="All">All Genders</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <!-- Add other gender options if needed -->
-        </select>
-      
-        <select  class="form-select" size="1" [(ngModel)]="selectedAvailabilityFilter" (change)="applyFilters()">
-          <option value="All">All Availabilities</option>
-          <option [ngValue]="true">Available</option>
-          <option [ngValue]="false">Unavailable</option>
-          <!-- Add other availability options if needed -->
-        </select>
-
-        <button class="btn btn-warning" (click)="clearAllFilters()">Clear</button>
-
-    </div> 
-
-    <!-- Card -->
-      <div class="row g-5 ">
-        <div class="col-lg-4 card-deck" *ngFor="let user of paginatedUsers">
-          <div class="card">
-            <img src="{{ user.avatar }}" class="card-img-top" alt="avatar">
-            <div class="card-body">
-                <p>First Name: {{ user.first_name }}</p>
-                <p>Last Name: {{ user.last_name }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p>Gender: {{ user.gender }}</p>
-                <p>Domain: {{ user.domain }}</p>
-                <p>Availability: {{ user.available }}</p>
-                <button class="btn btn-primary" (click)="addToTeam(user)">Add to Team</button>
-            </div>
-          </div>
+  <!-- Div that contains all filters and search box -->
+  <div class="search-controls row">
+    <!-- search bar -->
+    <h5>Search:</h5>
+    <input class="form-control" type="text" placeholder="Search by name" [(ngModel)]="searchName"
+      (input)="applyFilters()" />
+      <!-- filter for domain -->
+      <!-- values are set with 2 way binding -->
+      <h5>Filters:</h5>
+    <select class="form-select" size="1" [(ngModel)]="selectedDomainFilter" (change)="applyFilters()">
+      <option value="All">All Domains</option>
+      <!-- getting values of all domains dynamically -->
+      <option *ngFor="let domain of uniqueDomains" [value]="domain">
+        {{ domain }}
+      </option>
+    </select>
+    <!-- filter for Gender -->
+    <!-- values are set with 2 way binding -->
+    <select class="form-select" size="1" [(ngModel)]="selectedGenderFilter" (change)="applyFilters()">
+      <option value="All">All Genders</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <!-- filter for Availability -->
+    <!-- values are set with 2 way binding -->
+    <select class="form-select" size="1" [(ngModel)]="selectedAvailabilityFilter" (change)="applyFilters()">
+      <option value="All">All Availabilities</option>
+      <option [ngValue]="true">Available</option>
+      <option [ngValue]="false">Unavailable</option>
+    </select>
+    <!-- this buttons call clear filter method -->
+    <button class="btn btn-warning" (click)="clearAllFilters()">Clear</button>
+  </div>
+  <hr>
+  <h2>User Details</h2>
+  <!-- Card elements to show users -->
+  <!-- values are fetched dynamically -->
+  <div class="row g-3">
+    <div class="col-lg-4 card-deck" *ngFor="let user of paginatedUsers">
+      <div class="card">
+        <img src="{{ user.avatar }}" class="card-img-top" alt="avatar" />
+        <div class="card-body">
+          <p>First Name: {{ user.first_name }}</p>
+          <p>Last Name: {{ user.last_name }}</p>
+          <p>Email: {{ user.email }}</p>
+          <p>Gender: {{ user.gender }}</p>
+          <p>Domain: {{ user.domain }}</p>
+          <p>Availability: {{ user.available }}</p>
+          <button class="btn btn-primary" (click)="addToTeam(user)">
+            Add to Team
+          </button>
         </div>
       </div>
-  
-    <!-- Pagination -->
-    <div class="page-controls">
-      <button class="btn btn-outline-primary" (click)="skipFirst()" [disabled]="currentPage === 1">First</button>
-      <button class="btn btn-outline-primary" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-      <span>Page {{ currentPage }} / {{totalPage}}</span>
-      <button class="btn btn-outline-primary" (click)="nextPage()" [disabled]="currentPage >= filteredUsers.length / itemsPerPage">Next</button>
-      <button class="btn btn-outline-primary" (click)="skipLast()">Last</button>
     </div>
-
   </div>
-  
+  <!-- pagination controls -->
+  <div class="page-controls">
+    <!-- button to skip to first page -->
+    <button class="btn btn-outline-primary" (click)="skipFirst()" [disabled]="currentPage === 1">
+      First
+    </button>
+    <!-- button to move to previous page -->
+    <button class="btn btn-outline-primary" (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} / {{ totalPage }}</span>
+    <!-- button to move to next page -->
+    <button class="btn btn-outline-primary" (click)="nextPage()"
+      [disabled]="currentPage >= filteredUsers.length / itemsPerPage">
+      Next
+    </button>
+    <!-- button to skip to first page -->
+    <button class="btn btn-outline-primary" (click)="skipLast()">Last</button>
+  </div>
+</div>

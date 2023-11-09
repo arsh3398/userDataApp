@@ -1,27 +1,35 @@
-# UserDataApp
+# Angular User Management Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+This project is an Angular application that allows users to manage user data, view all users, and add or remove users from a team. It provides navigation buttons to switch between views of all users and team members.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- View all users: Access a list of all available users.
+- Pagination: Show Only 20 users at a time.
+- Add to Team: Select and add users to a team.
+- Remove from Team: Remove users from the team.
+- Navigation Buttons: Easily navigate between views of all users and team members.
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Installation**
 
-## Build
+   - Clone the repository:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+     ```bash
+     git clone https://github.com/arsh3398/userDataApp.git
+     cd your-angular-project
+     ```
 
-## Running unit tests
+   - Install dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+     ```bash
+     npm install
+     ```
 
-## Running end-to-end tests
+2. **Run the Application**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   Start the application:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   ng serve

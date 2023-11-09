@@ -4,8 +4,8 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { UsersDisplayComponent } from './components/users-display/users-display.component';
 
 const routes: Routes = [
-  {path:'teams',component:TeamsComponent},
-  {path:'users',component:UsersDisplayComponent}
+  {path:'',component:UsersDisplayComponent},
+  {path:'teams',component:TeamsComponent}
 ];
 
 @NgModule({
