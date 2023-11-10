@@ -14,5 +14,6 @@ export class TeamsComponent {
   }
   removeFromTeam(user: any) {
     this.teamService.removeFromTeam(user);
+    alert("User Removed From Team")
   } //this method calls a team service that removes a user form team
 }
