@@ -20,6 +20,7 @@ export class UsersDisplayComponent {
   itemsPerPage: number = 20;
   uniqueDomains: string[] = [];
   totalPage: number = 0;
+  name:string ="";
 
   constructor(
     private userService: UsersServicesService,
@@ -105,4 +106,5 @@ export class UsersDisplayComponent {
     this.selectedAvailabilityFilter = 'All';
     this.applyFilters();
   } // this method sets all the filter values yo default to clear all filters.
+
 }
